@@ -99,3 +99,4 @@ const config = [
   { id: "result", title: "结果 Result", component: Result },
 ];
 export default config
+

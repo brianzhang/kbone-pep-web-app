@@ -4,12 +4,13 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const MpPlugin = require('mp-webpack-plugin')
-
+const routerMap = require('./router-map');
 const isOptimize = false // 是否压缩业务代码，开发者工具可能无法完美支持业务代码使用到的 es 特性，建议自己做代码压缩
 
 module.exports = {
   mode: 'production',
   entry: {
+    // ...routerMap.PagesMap
     index: path.resolve(__dirname, '../src/index.jsx'),
     log: path.resolve(__dirname, '../src/log.jsx'),
   },
@@ -48,33 +49,47 @@ module.exports = {
 
     minimizer: isOptimize
       ? [
-          // 压缩CSS
-          new OptimizeCSSAssetsPlugin({
-            assetNameRegExp: /\.(css|wxss)$/g,
-            cssProcessor: require('cssnano'),
-            cssProcessorPluginOptions: {
-              preset: [
-                'default',
-                {
-                  discardComments: {
-                    removeAll: true,
-                  },
-                  minifySelectors: false, // 因为 wxss 编译器不支持 .some>:first-child 这样格式的代码，所以暂时禁掉这个
+        // 压缩CSS
+        new OptimizeCSSAssetsPlugin({
+          assetNameRegExp: /\.(css|wxss)$/g,
+          cssProcessor: require('cssnano'),
+          cssProcessorPluginOptions: {
+            preset: [
+              'default',
+              {
+                discardComments: {
+                  removeAll: true,
                 },
-              ],
-            },
-            canPrint: false,
-          }),
-          // 压缩 js
-          new TerserPlugin({
-            test: /\.js(\?.*)?$/i,
-            parallel: true,
-          }),
-        ]
+                minifySelectors: false, // 因为 wxss 编译器不支持 .some>:first-child 这样格式的代码，所以暂时禁掉这个
+              },
+            ],
+          },
+          canPrint: false,
+        }),
+        // 压缩 js
+        new TerserPlugin({
+          test: /\.js(\?.*)?$/i,
+          parallel: true,
+        }),
+      ]
       : [],
   },
   module: {
     rules: [
+      {
+        test: /\.less$/i,
+        use: [
+          {
+            loader: "style-loader",
+          },
+          {
+            loader: "css-loader",
+          },
+          {
+            loader: "less-loader",
+          },
+        ],
+      },
       {
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, 'css-loader'],
