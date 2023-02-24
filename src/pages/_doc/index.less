@@ -1,0 +1,36 @@
+.index {
+  .logo {
+    text-align: center;
+    color: #006eff;
+    background-color: #f2f2f2;
+    padding: 84px 0;
+    font-size: 84px;
+  }
+
+  .header {
+    padding: 32px;
+    font-size: 26px;
+    color: #444;
+    border-bottom: 2px solid #f2f2f2;
+    &::before {
+      content: '';
+      height: 48px;
+      margin-right: 24px;
+      position: relative;
+      border-left: 8px solid #006eff;
+    }
+  }
+
+  .item {
+    padding: 32px;
+    margin: 0 32px;
+    font-size: 24px;
+    border-bottom: 2px solid #e5e5e5;
+    &::after {
+      content: '>';
+      color: #888;
+      position: relative;
+      float: right;
+    }
+  }
+}

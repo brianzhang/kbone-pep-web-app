@@ -1,0 +1,23 @@
+@import "./var.less";
+
+.@{prefixName}-headerbar {
+  width: 100%;
+  font-size: @headerbar-text-size;
+
+  width: 100%;
+  height: @headerbar-header-height;
+  background-color: @headerbar-header-background-color;
+
+  &.with-search {
+    display: flex;
+  }
+
+  &__search {
+    flex-grow: 0;
+    flex-shrink: 0;
+    margin: 0;
+    padding: @headerbar-drop-search-padding;
+    line-height: @headerbar-header-height!important;
+    color: @text-light-color;
+  }
+}

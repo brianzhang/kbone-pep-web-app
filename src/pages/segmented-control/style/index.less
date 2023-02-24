@@ -1,0 +1,51 @@
+@import "./var.less";
+
+.@{prefixName}-segmented-control {
+  .flex(@align-items: center, @justify-content: center);
+  width: 100%;
+  height: @segmented-control-height;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: @font-size-sm;
+
+  &.count-2 {
+    padding-left: 24%;
+    padding-right: 24%;
+  }
+
+  &.count-3 {
+    padding-left: 12%;
+    padding-right: 12%;
+  }
+
+  &.count-4 {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  &__option {
+    .flex(@align-items: center, @justify-content: center);
+    color: @text-color;
+    height: @segmented-control-height;
+    box-sizing: border-box;
+    white-space: nowrap;
+    text-align: center;
+    flex-grow: 1;
+
+    &-inner {
+      box-sizing: border-box;
+      min-width: 120px;
+      padding: 0 16px;
+      height: @segmented-control-option-height;
+      line-height: @segmented-control-option-height;
+    }
+
+    &.is-active {
+      .@{prefixName}-segmented-control__option-inner {
+        background-color: @segmented-control-option-action-background;
+        color: @segmented-control-option-action-text-color;
+        border-radius: 30px;
+      }
+    }
+  }
+}

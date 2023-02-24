@@ -1,0 +1,1 @@
+export { NavigatorProps } from "../navigator";

@@ -17,7 +17,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   mode: 'development',
   devServer: {
     historyApiFallback: {
-      rewrites: [{from: /.*/, to: '/index.html'}],
+      rewrites: [{ from: /.*/, to: '/index.html' }],
     },
     hot: true,
     compress: true,
@@ -42,6 +42,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   devtool: 'cheap-module-eval-source-map',
   module: {
     rules: [
+      // LESS
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],

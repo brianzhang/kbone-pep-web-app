@@ -1,0 +1,39 @@
+@import "../../../_style/index.less";
+
+.tea-core-input {
+  display: block;
+  text-align: inherit;
+  text-overflow: clip;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  border: 0;
+  outline: 0;
+  -webkit-appearance: none;
+  background-color: transparent;
+  font-size: inherit;
+  color: inherit;
+  height: 1.47058824em;
+  line-height: 1.47058824;
+
+  &:focus {
+    outline: none;
+  }
+
+  &::placeholder {
+    color: @text-placeholder-color;
+  }
+
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}

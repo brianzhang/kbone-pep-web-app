@@ -1,0 +1,53 @@
+@import "./var.less";
+
+.@{prefixName}-toast {
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  top: 50%;
+  left: 50%;
+  width: fit-content;
+  max-width: @toast-max-width;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: @toast-zindex;
+  transition: all 0.3s ease;
+  pointer-events: none;
+
+  &.is-shown {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: inherit;
+  }
+
+  &.@{prefixName}-toast--pure-text {
+    .@{prefixName}-toast__container {
+      min-width: 0;
+      min-height: 0;
+    }
+    .@{prefixName}-toast__text {
+      margin-top: 0;
+    }
+  }
+
+  &__container {
+    display: flex;
+    font-size: @toast-text-size;
+    color: @toast-text-color;
+    min-width: 200px;
+    min-height: 200px;
+    line-height: 1;
+    padding: 30px;
+    border-radius: @toast-border-radius;
+    background-color: @toast-background-color;
+    word-break: break-all;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  &__text {
+    line-height: 1;
+    margin-top: 30px;
+  }
+}

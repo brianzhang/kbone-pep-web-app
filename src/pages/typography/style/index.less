@@ -1,0 +1,65 @@
+@import "./var.less";
+
+.@{prefixName}-typography {
+  line-height: @line-height-default;
+
+  & + .@{prefixName}-heading {
+    margin-bottom: 0.5em;
+  }
+}
+
+// _style/utilities.less
+.@{prefixName}-text {
+  display: inline;
+  font-size: @font-size-md;
+  font-weight: @font-weight-default;
+  &.size-lg {
+    font-size: @font-size-lg;
+  }
+  &.size-md {
+    font-size: @font-size-md;
+  }
+  &.size-sm {
+    font-size: @font-size-sm;
+  }
+  &.size-xs {
+    font-size: @font-size-xs;
+  }
+  &.size-xxs {
+    font-size: @font-size-xxs;
+  }
+
+  &__block {
+    display: block !important;
+  }
+}
+
+.@{prefixName}-heading {
+  color: @text-base-color;
+  font-weight: @font-weight-bold;
+
+  & + .@{prefixName}-typography {
+    margin-top: 1em;
+  }
+
+  &.level-h1 {
+    font-size: @font-size-h1;
+  }
+  &.level-h2 {
+    font-size: @font-size-h2;
+  }
+  &.level-h3 {
+    font-size: @font-size-h3;
+  }
+  &.level-h4 {
+    font-size: @font-size-h4;
+  }
+  &.level-h5 {
+    font-size: @font-size-h5;
+  }
+}
+
+.@{prefixName}-link {
+  display: inline-block;
+  text-decoration: none;
+}

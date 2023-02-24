@@ -1,0 +1,135 @@
+@import "./var.less";
+
+.@{prefixName}-cascader__container {
+  width: 100%;
+}
+
+.@{prefixName}-cascader {
+  width: 100%;
+  position: relative;
+  background-color: @cascader-background-color;
+
+  &__header {
+    width: 100%;
+    height: @cascader-header-height;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    font-size: @cascader-header-font-size;
+    padding: 0 @cascader-header-padding;
+  }
+
+  &__title {
+    width: 100%;
+    height: @cascader-title-height;
+    justify-content: center;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    font-size: @cascader-title-font-size;
+  }
+
+  &__tag {
+    margin-right: 40px;
+    &.is-active {
+      color: @cascader-active-color;
+    }
+  }
+
+  &__body {
+    position: relative;
+    height: @cascader-list-height;
+    background-color: @cascader-light-color;
+  }
+
+  &__body-inner {
+    width: 100%;
+    overflow: hidden;
+    position: absolute;
+    z-index: 100;
+    background-color: @cascader-light-color;
+    bottom: 0;
+  }
+
+  &__box {
+    width: 150%;
+    display: flex;
+    height: @cascader-list-height;
+    transition: transform 0.3s ease;
+  }
+
+  &__list {
+    flex-basis: 33.3333%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    background-color: @cascader-background-color;
+
+    &.light {
+      background-color: @cascader-light-color;
+      & .@{prefixName}-item {
+        background-color: @cascader-light-color;
+      }
+    }
+
+    & .@{prefixName}-item.@{prefixName}-hairline--bottom {
+      &::after {
+        right: 32px;
+      }
+      &:last-child {
+        &::after {
+          display: block;
+        }
+      }
+    }
+
+    .@{prefixName}-item__value .@{prefixName}-icon {
+      color: @cascader-active-color;
+    }
+  }
+
+  &__label {
+    font-size: @cascader-list-font-size;
+
+    &.is-active {
+      color: @cascader-active-color;
+    }
+    &.is-disabled {
+      color: @text-disabled-color;
+    }
+  }
+
+  &__ref {
+    width: 100%;
+
+    &_backdrop {
+      position: fixed;
+      left: 0;
+      top: 0;
+      z-index: 99;
+      height: 100vh;
+      width: 100vw;
+    }
+
+    &_body {
+      position: fixed;
+      z-index: 100;
+      left: 0;
+      width: 100vw;
+
+      .@{prefixName}-cascader {
+        z-index: 101;
+      }
+    }
+
+    &_mask {
+      position: absolute;
+      left: 0;
+      top: 0;
+      margin: auto;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 100;
+      height: 100vh;
+      width: 100vw;
+    }
+  }
+}

@@ -1,0 +1,18 @@
+.demo-indicator {
+  position: absolute;
+  bottom: 24px;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  z-index: 1;
+
+  .demo-indicator-dot {
+    width: 48px;
+    height: 8px;
+    margin: 0 8px;
+    background: rgba(0, 0, 0, 0.4);
+    &.current {
+      background: #ffffff;
+    }
+  }
+}

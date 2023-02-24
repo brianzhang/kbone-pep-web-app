@@ -1,0 +1,23 @@
+.flex(@display: flex, @flex-direction: row, @flex-wrap: nowrap, @align-items: flex-start, @justify-content: flex-start) {
+  display: @display;
+  flex-direction: @flex-direction;
+  flex-wrap: @flex-wrap;
+  align-items: @align-items;
+  justify-content: @justify-content;
+}
+
+.flex-no-stretch() {
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+.flex-center() {
+  .flex(@align-items: center, @justify-content: center);
+}
+
+.transition(@property, @duration: 0.3s, @timing-function: ease, @delay: 0s) {
+  transition-property: @property;
+  transition-duration: @duration;
+  transition-timing-function: @timing-function;
+  transition-delay: @delay;
+}

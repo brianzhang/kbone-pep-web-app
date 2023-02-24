@@ -1,0 +1,95 @@
+.hairline-common() {
+  position: absolute;
+  display: block;
+  content: "";
+  pointer-events: none;
+  box-sizing: border-box;
+}
+
+.border(@size: 2px, @color: #000) {
+  .hairline-common();
+  width: 200%;
+  height: 200%;
+  top: 0px;
+  left: 0px;
+  border: @size solid @color;
+  border-radius: inherit;
+  transform-origin: 0 0;
+  transform: scale(0.5);
+}
+
+.single-border(@direction: top, @size: 2px, @color: #000, @t-spacing: 0px, @r-spacing: 0px, @b-spacing: 0px, @l-spacing: 0px)
+  when
+  (@direction = top) {
+  .hairline-common();
+  top: 0px;
+  left: @l-spacing;
+  right: @r-spacing;
+  bottom: auto;
+  width: auto;
+  height: @size;
+  border-top: @size solid @color;
+  background-color: @color;
+  transform-origin: 0 0;
+  transform: scaleY(0.5);
+}
+
+.single-border(@direction: top, @size: 2px, @color: #000, @t-spacing: 0px, @r-spacing: 0px, @b-spacing: 0px, @l-spacing: 0px)
+  when
+  (@direction = bottom) {
+  .hairline-common();
+  top: auto;
+  left: @l-spacing;
+  right: @r-spacing;
+  bottom: 0px;
+  width: auto;
+  height: @size;
+  border-bottom: @size solid @color;
+  background-color: @color;
+  transform-origin: 0 100%;
+  transform: scaleY(0.5);
+}
+
+.single-border(@direction: top, @size: 2px, @color: #000, @t-spacing: 0px, @r-spacing: 0px, @b-spacing: 0px, @l-spacing: 0px)
+  when
+  (@direction = left) {
+  .hairline-common();
+  top: @t-spacing;
+  left: @l-spacing;
+  right: auto;
+  bottom: @b-spacing;
+  width: @size;
+  height: auto;
+  border-left: @size solid @color;
+  background-color: @color;
+  transform-origin: 0 0;
+  transform: scaleX(0.5);
+}
+
+.single-border(@direction: top, @size: 2px, @color: #000, @t-spacing: 0px, @r-spacing: 0px, @b-spacing: 0px, @l-spacing: 0px)
+  when
+  (@direction = right) {
+  .hairline-common();
+  top: @t-spacing;
+  left: auto;
+  right: @r-spacing;
+  bottom: @b-spacing;
+  width: @size;
+  height: auto;
+  border-right: @size solid @color;
+  background-color: @color;
+  transform-origin: 100% 0;
+  transform: scaleX(0.5);
+}
+
+.horizontal-border(@size: 2px, @color: #000) {
+  .hairline-common();
+  top: -50%;
+  left: -50%;
+  right: -50%;
+  bottom: -50%;
+  border: 0 solid @color;
+  border-width: @size 0;
+  transform-origin: center;
+  transform: scale(0.5);
+}

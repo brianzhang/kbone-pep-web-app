@@ -1,0 +1,90 @@
+@import "./var.less";
+
+.@{prefixName}-tag {
+  display: inline-block;
+  font-size: @tag-sm-text-size;
+  line-height: 1;
+  color: @tag-text-color;
+  padding: @tag-padding;
+  border-radius: @tag-border-radius;
+
+  &.size {
+    &-md {
+      font-size: @tag-md-text-size;
+    }
+    &-lg {
+      font-size: @tag-lg-text-size;
+    }
+  }
+
+  &--default {
+    background-color: @tag-default-background-color;
+    border-color: @tag-default-border-color;
+  }
+  &--primary {
+    background-color: @tag-primary-background-color;
+    border-color: @tag-primary-border-color;
+  }
+  &--success {
+    background-color: @tag-success-background-color;
+    border-color: @tag-success-border-color;
+  }
+  &--warning {
+    background-color: @tag-warning-background-color;
+    border-color: @tag-warning-border-color;
+  }
+  &--danger {
+    background-color: @tag-danger-background-color;
+    border-color: @tag-danger-border-color;
+  }
+  &--outline {
+    border: 2px solid;
+  }
+
+  &--outline,
+  &--light {
+    background-color: @tag-outline-background-color;
+
+    &.@{prefixName}-tag--default {
+      color: @tag-default-text-color;
+    }
+    &.@{prefixName}-tag--primary {
+      color: @tag-primary-text-color;
+    }
+    &.@{prefixName}-tag--success {
+      color: @tag-success-text-color;
+    }
+    &.@{prefixName}-tag--warning {
+      color: @tag-warning-text-color;
+    }
+    &.@{prefixName}-tag--danger {
+      color: @tag-danger-text-color;
+    }
+  }
+
+  &--round {
+    border-radius: @tag-round-border-radius;
+  }
+
+  &--light {
+    &.@{prefixName}-tag--default {
+      background-color: @tag-default-light-background-color;
+    }
+    &.@{prefixName}-tag--primary {
+      background-color: @tag-primary-light-background-color;
+    }
+    &.@{prefixName}-tag--success {
+      background-color: @tag-success-light-background-color;
+    }
+    &.@{prefixName}-tag--warning {
+      background-color: @tag-warning-light-background-color;
+    }
+    &.@{prefixName}-tag--danger {
+      background-color: @tag-danger-light-background-color;
+    }
+  }
+
+  &.is-clickable {
+    opacity: @opacity-active;
+  }
+}

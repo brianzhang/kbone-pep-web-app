@@ -1,0 +1,72 @@
+@import "./var.less";
+
+.@{prefixName}-modal {
+  position: fixed;
+  width: @modal-width;
+  max-width: calc(100vw - 16px);
+  top: 50%;
+  left: 50%;
+  background-color: @modal-background-color;
+  border-radius: @modal-border-radius;
+  transform: translateX(-50%) translateY(-50%);
+
+  &__header {
+    padding-top: @modal-header-padding-top;
+    text-align: center;
+  }
+
+  &__headertitle {
+    color: @modal-header-text-color;
+    font-size: @modal-header-text-size;
+    font-weight: @modal-header-font-weight;
+  }
+
+  &__body {
+    color: @modal-content-text-color;
+    font-size: @modal-content-text-size;
+    font-weight: @modal-content-font-weight;
+    padding: @modal-content-padding;
+    text-align: center;
+
+    &.@{prefixName}-modal__body--no-title {
+      font-size: @modal-no-title-content-text-size;
+      color: @modal-no-title-content-text-color;
+      padding-top: @modal-no-title-content-padding-top;
+    }
+  }
+
+  &__header:empty,
+  &__body:empty {
+    display: none;
+  }
+
+  &__footer {
+    position: relative;
+    border-radius: 0 0 @modal-border-radius @modal-border-radius;
+    overflow: hidden;
+
+    &-item {
+      position: relative;
+      .@{prefixName}-modal__button {
+        width: 100%;
+        &::after {
+          .border(0px, transparent);
+        }
+        &.@{prefixName}-modal__button--confirm {
+          color: @modal-confirm-button-text-color !important;
+        }
+        &.@{prefixName}-modal__button--cancel {
+          color: @modal-cancel-button-text-color !important;
+        }
+      }
+      &:first-child .@{prefixName}-modal__button {
+        border-radius: 0 0 0 @modal-border-radius !important;
+        overflow: hidden;
+      }
+      &:last-child .@{prefixName}-modal__button {
+        border-radius: 0 0 @modal-border-radius 0 !important;
+        overflow: hidden;
+      }
+    }
+  }
+}

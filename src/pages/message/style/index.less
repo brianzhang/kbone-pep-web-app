@@ -1,0 +1,59 @@
+@import "./var.less";
+
+.@{prefixName}-message {
+  position: fixed;
+  display: flex;
+  top: 0;
+  left: 50%;
+  width: 100%;
+  min-height: @message-height;
+  line-height: 1.5;
+  padding: @message-padding;
+  background-color: @message-default-background-color;
+  align-items: center;
+  box-shadow: @message-box-shadow;
+  transform: translate(-50%, -100%);
+  opacity: 0;
+  transition: all 300ms ease;
+  box-sizing: border-box;
+  z-index: @message-zindex;
+  color: @message-text-color;
+  pointer-events: none;
+
+  &.is-shown {
+    opacity: 1;
+    transform: translate(-50%, 0);
+    pointer-events: inherit;
+  }
+
+  &__icon {
+    margin-right: @message-icon-margin-right;
+  }
+
+  &__text {
+    font-size: @message-text-size;
+  }
+
+  &--info {
+    background-color: @message-info-background-color;
+  }
+
+  &--success {
+    background-color: @message-success-background-color;
+  }
+
+  &--warning {
+    background-color: @message-warning-background-color;
+  }
+
+  &--error {
+    background-color: @message-danger-background-color;
+  }
+
+  &--default,
+  &--loading {
+    .@{prefixName}-message__text {
+      color: @message-text-base-color;
+    }
+  }
+}

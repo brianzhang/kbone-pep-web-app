@@ -1,0 +1,174 @@
+@import "./var.less";
+@import "../../list/style/index.less";
+
+.@{prefixName}-form {
+  &__title,
+  &__footer {
+    font-size: @form-title-text-size;
+    color: @form-title-text-color;
+    padding: @form-title-padding;
+  }
+
+  // 适配 Picker 包住 Item 时边框
+  .@{prefixName}-form__wrap > .@{prefixName}-picker:not(:last-child) {
+    .@{prefixName}-item.@{prefixName}-hairline--bottom::after {
+      display: initial;
+    }
+  }
+
+  // 适配 Checkbox Group 包住 Item 时 margin
+  .@{prefixName}-form__wrap > .@{prefixName}-checkbox-group {
+    margin: 0;
+  }
+}
+
+.@{prefixName}-form-divider {
+  position: relative;
+  font-size: 0;
+  height: @form-divider-height;
+  border: 2px solid @form-item-background-color;
+  z-index: 1;
+  margin-top: -2px;
+}
+
+.@{prefixName}-form-item {
+  position: relative;
+  display: flex;
+  width: 100%;
+  line-height: 1.5;
+  background-color: @form-item-background-color !important;
+  padding: @form-item-padding !important;
+  font-size: @form-item-label-text-size !important;
+  box-sizing: border-box;
+
+  &--vertical {
+    flex-direction: column;
+
+    .@{prefixName}-form-item {
+      &__label {
+        font-size: @form-item-vertical-label-text-size;
+        color: @form-item-vertical-label-text-color;
+      }
+
+      &__value {
+        position: relative;
+        padding-right: 0;
+        margin-left: 0 !important;
+      }
+
+      &__controls {
+        margin-top: @form-item-vertical-controls-margin-top;
+      }
+    }
+  }
+
+  &__label {
+    display: block;
+    font-size: @form-item-label-text-size !important;
+    color: @form-item-label-text-color !important;
+  }
+
+  &__placeholder {
+    color: @text-placeholder-color;
+  }
+
+  &__controls {
+    display: flex;
+    align-items: center;
+    color: initial;
+    text-align: left;
+
+    &.is-customized {
+      display: block;
+      align-items: stretch;
+      text-align: left;
+    }
+
+    .@{prefixName}-field__input,
+    .@{prefixName}-field__textarea {
+      font-size: @form-item-value-text-size !important;
+      color: @form-item-value-text-color !important;
+      padding: 0 !important;
+
+      &.is-disabled {
+        color: @form-item-value-disabled-text-color !important;
+        background-color: inherit !important;
+      }
+    }
+
+    .@{prefixName}-field__input {
+      height: auto;
+    }
+
+    .@{prefixName}-field__textarea {
+    }
+
+    & > .@{prefixName}-switch,
+    & > .@{prefixName}-checkbox-wrap {
+      margin-left: auto;
+    }
+
+    .@{prefixName}-checkbox__wrap--outline {
+      background-color: @background-secondary-light-color;
+    }
+
+    &-item {
+      background-color: inherit !important;
+    }
+  }
+
+  .@{prefixName}-field__input {
+    position: relative;
+    display: block;
+    width: 100%;
+    min-height: 0;
+    height: auto;
+    background-color: inherit;
+    text-align: left;
+    text-overflow: clip;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .@{prefixName}-field__textarea {
+    position: relative;
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+
+  &__extra {
+    flex-shrink: 0;
+    padding-left: 20px;
+  }
+
+  &__extra:empty {
+    display: none;
+  }
+
+  // &__verification-code {
+  //   font-size: @form-item-verification-code-text-size;
+  //   color: @form-item-verification-code-text-color;
+
+  //   &.is-disabled {
+  //     color: @form-item-verification-code-disabled-text-color;
+  //     pointer-events: none;
+  //   }
+  // }
+
+  &__helper-text,
+  &__invalid-text {
+    font-size: @form-item-assistive-text-size;
+    line-height: 1.5;
+    margin-top: @form-item-assistive-text-margin-top;
+    text-align: left;
+  }
+
+  &__helper-text {
+    color: @form-item-helper-text-color;
+  }
+
+  &__invalid-text {
+    color: @form-item-invalid-text-color;
+  }
+}

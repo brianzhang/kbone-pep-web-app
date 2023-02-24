@@ -1,0 +1,115 @@
+@import "./var.less";
+
+// 此处为了解决ios与android移动端input输入框disabled样式不一致问题
+// ios会在input框为disabled时做透明度设置
+input:disabled {
+  -webkit-text-fill-color: @field-disabled-text-color; //填充字体颜色 这个生效的时候 设置的color就不生效
+  opacity: 1; //设置透明度
+}
+
+.@{prefixName}-field {
+  display: flex;
+  width: 100%;
+  background-color: @field-background-color;
+  box-sizing: border-box;
+
+  &__ios {
+    margin-top: -12rpx;
+  }
+
+  &__textarea,
+  &__input {
+    display: block;
+    font-size: @field-text-size;
+    color: @field-text-color;
+    width: 100%;
+    align-items: center;
+
+    &.is-disabled {
+      color: @field-disabled-text-color;
+      background-color: @field-disabled-background-color;
+    }
+  }
+
+  &__textarea {
+    position: relative;
+    padding: @field-textarea-padding;
+
+    &-item {
+      display: block;
+      width: 100%;
+      height: auto;
+      min-height: @field-textarea-min-height;
+      max-height: @field-textarea-max-height;
+      font-family: inherit;
+      font-weight: @font-weight-default;
+
+      // 适配 H5
+      .taro-textarea {
+        font-size: inherit;
+        font-family: inherit;
+        resize: none;
+        line-height: inherit;
+      }
+
+      &.size-auto {
+        min-height: 0;
+        max-height: none;
+      }
+
+      // &.is-count {
+      //   padding-bottom: 30px;
+      // }
+    }
+    &-counter {
+      text-align: right;
+      font-size: @field-counter-text-size;
+      color: @field-counter-number-text-color;
+    }
+    &-current {
+      color: @field-current-number-text-color;
+    }
+  }
+
+  &__input {
+    padding: @field-input-padding;
+
+    &-item {
+      display: block;
+      width: 100%;
+      min-height: @field-input-height - @field-input-padding*2;
+      height: @field-input-height - @field-input-padding*2;
+      line-height: inherit;
+      text-overflow: clip;
+      overflow: hidden;
+      white-space: nowrap;
+      font-family: inherit;
+      font-weight: @font-weight-default;
+    }
+  }
+
+  &__placeholder {
+    color: @field-placeholder-text-color;
+    font-family: inherit;
+    font-weight: @font-weight-default;
+    font-size: @field-text-size;
+
+    &--invalid {
+      color: @field-invalid-text-color;
+    }
+  }
+
+  .input-placeholder {
+    color: @field-placeholder-text-color;
+    font-family: inherit;
+    font-weight: @font-weight-default;
+    font-size: @field-text-size;
+  }
+
+  .weui-input::-webkit-input-placeholder {
+    color: @field-placeholder-text-color;
+  }
+  .taro-textarea::-webkit-input-placeholder {
+    color: @field-placeholder-text-color;
+  }
+}

@@ -1,0 +1,53 @@
+@import "./var.less";
+
+.@{prefixName}-card {
+  background-color: @card-background-color;
+  box-sizing: border-box;
+
+  & + .@{prefixName}-card {
+    margin-top: @white-space-height;
+  }
+  &__header {
+    font-size: @font-size-default;
+    padding: @card-header-padding;
+    .@{prefixName}-level__end .@{prefixName}-picker-button {
+      padding-right: 0;
+    }
+  }
+
+  &__body {
+    box-sizing: border-box;
+    font-size: @font-size-default;
+    padding: @card-body-padding;
+    &.with-title {
+      padding-top: @card-body-title-padding;
+    }
+  }
+
+  &__title {
+    .@{prefixName}-heading {
+      display: inline-block;
+    }
+    // padding-bottom: @card-body-title-padding;
+    margin-bottom: @card-body-title-padding;
+    .@{prefixName}-level__end .@{prefixName}-picker-button {
+      padding-right: 0;
+    }
+  }
+
+  &__subtitle {
+    margin-left: @margin-base;
+  }
+
+  &__footer {
+    font-size: @font-size-default;
+    padding: @card-footer-padding;
+    box-sizing: border-box;
+  }
+
+  &__header:empty,
+  &__body:empty,
+  &__footer:empty {
+    display: none;
+  }
+}

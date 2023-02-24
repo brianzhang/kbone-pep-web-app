@@ -1,0 +1,26 @@
+﻿{
+  "compilerOptions": {
+    "jsx": "react",
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "module": "commonjs",
+    "target": "es5",
+    "rootDir": "src",
+    "outDir": "package/mobile/lib",
+    "declaration": true,
+    "sourceMap": true,
+    "lib": ["es2017", "dom"],
+    "importHelpers": true,
+    "allowSyntheticDefaultImports": true,
+    "downlevelIteration": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "paths": {
+      "@taro/components": ["./src/_core/components"],
+      "@taro/components/*": ["./src/_core/components/*"]
+    },
+  },
+  "include": ["src", "global.d.ts"],
+  "exclude": ["**/demo/*.ts", "**/demo/*.tsx", "**/_doc/*", "src/app.config.ts", "src/app.ts"],
+  "compileOnSave": false
+}

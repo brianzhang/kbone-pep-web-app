@@ -1,0 +1,53 @@
+@import "./var.less";
+
+:host {
+  display: inline-block;
+}
+.@{prefixName}-input-number {
+  .flex(@align-items: center);
+  height: @input-number-height;
+  color: @input-number-text-color;
+
+  &__button {
+    .flex(@align-items: center, @justify-content: center);
+    width: @input-number-height;
+    height: @input-number-height;
+    line-height: @input-number-height;
+    box-sizing: border-box;
+    background-color: @input-number-background-color;
+    font-size: @input-number-button-size;
+    color: @input-number-button-text-color;
+    position: relative;
+    transition: opacity 0.3s ease;
+
+    &::after {
+      .border(2px, @input-number-border-color);
+    }
+    &.is-disabled {
+      opacity: 0.3;
+    }
+  }
+
+  &__input {
+    width: @input-number-width;
+    font-size: @input-number-text-size;
+    height: @input-number-height;
+    box-sizing: border-box;
+    margin-left: @input-number-margin;
+    margin-right: @input-number-margin;
+    text-align: center;
+    background-color: @input-number-background-color;
+    position: relative;
+
+    &::after {
+      .border(2px, @input-number-border-color);
+    }
+    &.is-disabled {
+      opacity: 0.3;
+    }
+
+    input {
+      height: @input-number-height;
+    }
+  }
+}

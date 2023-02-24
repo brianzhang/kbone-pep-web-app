@@ -1,0 +1,91 @@
+@import "./var.less";
+
+.@{prefixName}-pagination {
+  .@{prefixName}-pagination__content {
+    display: flex;
+
+    .@{prefixName}-pagination__button_prev,
+    .@{prefixName}-pagination__button_next {
+      width: 180px;
+      padding: 0;
+      font-size: 24px;
+      min-height: 80px !important;
+    }
+
+    .@{prefixName}-pagination__button_prev.disabled,
+    .@{prefixName}-pagination__button_next.disabled {
+      background-color: #f4f5f9;
+      color: #000 !important;
+    }
+
+    .@{prefixName}-pagination__button_prev
+      .@{prefixName}-pagination__button_icon {
+      margin-left: -14px;
+    }
+
+    .@{prefixName}-pagination__button_next
+      .@{prefixName}-pagination__button_icon {
+      margin-right: -14px;
+    }
+
+    .@{prefixName}-pagination__selector {
+      flex-grow: 1;
+      display: flex;
+      margin: 0 24px;
+
+      .@{prefixName}-pagination__dropdown {
+        background-color: #f4f5f9;
+        flex-grow: 1;
+        .@{prefixName}-pagination__dropdownlist {
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .@{prefixName}-pagination__dropdowntext.selected {
+          color: #006eff;
+        }
+      }
+      .@{prefixName}-pagination__totalpage {
+        display: flex;
+        align-items: center;
+        font-size: 24px;
+        color: #888888;
+        letter-spacing: 0;
+        text-align: center;
+        line-height: 36px;
+        padding-left: 6px;
+      }
+      .@{prefixName}-pagination__currentpage {
+        display: flex;
+        padding: 22px 28px;
+        align-items: center;
+        justify-content: space-between;
+
+        .@{prefixName}-pagination__currentpage--text {
+          font-size: 24px;
+          max-width: 80px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+  }
+  .@{prefixName}-pagination__total {
+    font-weight: Regular;
+    font-size: 24px;
+    color: #888888;
+    letter-spacing: 0;
+    line-height: 36px;
+    margin: 20px 0 0;
+  }
+}
+
+// 针对窄屏将按钮宽度减小
+@media screen {
+  @media (max-width: 375px) {
+    .@{prefixName}-pagination {
+      .@{prefixName}-pagination__button_prev,
+      .@{prefixName}-pagination__button_next {
+        width: 140px !important;
+      }
+    }
+  }
+}

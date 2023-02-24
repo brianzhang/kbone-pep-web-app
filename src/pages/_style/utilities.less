@@ -1,0 +1,294 @@
+@import "./mixins/clearfix.less";
+@import "./mixins/flex.less";
+@import "./mixins/hairline.less";
+@import "./mixins/text.less";
+@import "./variables/color.less";
+@import "./variables/misc.less";
+
+.@{prefixName}-text {
+  color: @text-color;
+
+  &--light {
+    color: @text-light-color;
+  }
+  &--disabled {
+    color: @text-disabled-color;
+  }
+  &--black {
+    color: @text-base-color;
+  }
+  &--white {
+    color: @text-base-inverse-color;
+  }
+  &--primary {
+    color: @text-primary-color;
+  }
+  &--secondary {
+    color: @text-secondary-color;
+  }
+  &--success {
+    color: @text-success-color;
+  }
+  &--warning {
+    color: @text-warning-color;
+  }
+  &--danger {
+    color: @text-danger-color;
+  }
+  &--link {
+    color: @text-link-color;
+  }
+
+  &--left {
+    .text-align(left);
+  }
+  &--right {
+    .text-align(right);
+  }
+  &--start {
+    .text-align(start);
+  }
+  &--end {
+    .text-align(end);
+  }
+  &--center {
+    .text-align(center);
+  }
+  &--justify {
+    .text-align(justify);
+  }
+
+  &--wrap {
+    white-space: normal;
+  }
+  &--nowrap {
+    white-space: nowrap;
+  }
+
+  &--uppercase {
+    .text-transform(uppercase);
+  }
+  &--lowercase {
+    .text-transform(lowercase);
+  }
+  &--capitalize {
+    .text-transform(capitalize);
+  }
+}
+
+.@{prefixName}-background {
+  &--white {
+    background-color: @background-base-color;
+  }
+  &--transparent {
+    background-color: transparent;
+  }
+  &--primary {
+    background-color: @background-primary-color;
+  }
+  &--secondary {
+    background-color: @background-secondary-color;
+  }
+  &--success {
+    background-color: @background-success-color;
+  }
+  &--warning {
+    background-color: @background-warning-color;
+  }
+  &--danger {
+    background-color: @background-danger-color;
+  }
+}
+
+.@{prefixName}-ellipsis {
+  .text-ellipsis();
+
+  &--l2 {
+    .line-overflow(2);
+  }
+  &--l3 {
+    .line-overflow(3);
+  }
+  &--l4 {
+    .line-overflow(4);
+  }
+}
+
+.@{prefixName}-float {
+  &--left {
+    float: left;
+  }
+  &--right {
+    float: right;
+  }
+  &--none {
+    float: none;
+  }
+  &--clearfix {
+    .clearfix();
+  }
+}
+
+.@{prefixName}-padding {
+  padding: @padding-md;
+
+  &--top {
+    padding-top: @padding-md;
+  }
+  &--bottom {
+    padding-bottom: @padding-md;
+  }
+  &--left {
+    padding-left: @padding-md;
+  }
+  &--right {
+    padding-right: @padding-md;
+  }
+  &--vertical {
+    padding: @padding-md 0;
+  }
+  &--horizontal {
+    padding: 0 @padding-md;
+  }
+  &--none {
+    padding: 0;
+  }
+}
+
+.@{prefixName}-margin {
+  margin: @margin-md;
+
+  &--top {
+    margin-top: @margin-md;
+  }
+  &--bottom {
+    margin-bottom: @margin-md;
+  }
+  &--left {
+    margin-left: @margin-md;
+  }
+  &--right {
+    margin-right: @margin-md;
+  }
+  &--vertical {
+    margin: @margin-md 0;
+  }
+  &--horizontal {
+    margin: 0 @margin-md;
+  }
+  &--none {
+    margin: 0;
+  }
+}
+
+.@{prefixName}-hairline {
+  &--top,
+  &--bottom,
+  &--left,
+  &--right,
+  &--horizontal,
+  &--vertical,
+  &--surrounded {
+    position: relative;
+  }
+
+  &--top::after {
+    .single-border(top, 2px, @border-divider-color, 0px, 0px, auto, 0px);
+  }
+  &--bottom::after {
+    .single-border(bottom, 2px, @border-divider-color, auto, 0px, 0px, 0px);
+  }
+  &--left::after {
+    .single-border(left, 2px, @border-divider-color, 0px, auto, 0px, 0px);
+  }
+  &--right::after {
+    .single-border(right, 2px, @border-divider-color, 0px, 0px, 0px, auto);
+  }
+  &--horizontal::after {
+    .horizontal-border(2px, @border-divider-color);
+  }
+  &--surrounded::after {
+    .border(2px, @border-color);
+  }
+}
+
+/* Flex Properties */
+
+/* Flex Container Properties */
+.@{prefixName}-flex-nowrap {
+  flex-wrap: nowrap;
+}
+.@{prefixName}-flex-wrap {
+  flex-wrap: wrap;
+}
+.@{prefixName}-flex-wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
+.@{prefixName}-flex-row {
+  flex-direction: row;
+}
+.@{prefixName}-flex-row-reverse {
+  flex-direction: row-reverse;
+}
+.@{prefixName}-flex-column {
+  flex-direction: column;
+}
+.@{prefixName}-flex-column-reverse {
+  flex-direction: column-reverse;
+}
+
+.@{prefixName}-justify-content-flex-start {
+  justify-content: flex-start;
+}
+.@{prefixName}-justify-content-center {
+  justify-content: center;
+}
+.@{prefixName}-justify-content-flex-end {
+  justify-content: flex-end;
+}
+
+.@{prefixName}-justify-content-space-around {
+  justify-content: space-around;
+}
+.@{prefixName}-justify-content-space-between {
+  justify-content: space-between;
+}
+.@{prefixName}-justify-content-space-evenly {
+  justify-content: space-evenly;
+}
+
+.@{prefixName}-align-items-stretch {
+  align-items: stretch;
+}
+.@{prefixName}-align-items-flex-start {
+  align-items: flex-start;
+}
+.@{prefixName}-align-items-flex-end {
+  align-items: flex-end;
+}
+.@{prefixName}-align-items-center {
+  align-items: center;
+}
+.@{prefixName}-align-items-baseline {
+  align-items: baseline;
+}
+
+/* Flex Item Properties */
+.@{prefixName}-align-self-stretch {
+  align-self: stretch;
+}
+.@{prefixName}-align-self-flex-start {
+  align-self: flex-start;
+}
+.@{prefixName}-align-self-flex-end {
+  align-self: flex-end;
+}
+.@{prefixName}-align-self-center {
+  align-self: center;
+}
+.@{prefixName}-align-self-baseline {
+  align-self: baseline;
+}
+.@{prefixName}-align-self-auto {
+  align-self: auto;
+}

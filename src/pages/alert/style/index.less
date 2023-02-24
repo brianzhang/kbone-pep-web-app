@@ -1,0 +1,74 @@
+@import "var";
+
+.@{prefixName}-alert {
+  position: relative;
+  display: flex;
+  font-size: 0;
+  padding: @alert-padding;
+  min-height: @alert-min-height;
+  align-items: center;
+  box-sizing: border-box;
+  transition: all 300ms ease;
+
+  &--info {
+    background-color: @alert-info-background-color;
+    color: @alert-info-text-color;
+  }
+
+  &--success {
+    background-color: @alert-success-background-color;
+    color: @alert-success-text-color;
+  }
+
+  &--warning {
+    background-color: @alert-warning-background-color;
+    color: @alert-warning-text-color;
+  }
+
+  &--error {
+    background-color: @alert-danger-background-color;
+    color: @alert-danger-text-color;
+  }
+
+  &.is-close {
+    display: none;
+  }
+
+  &__icon {
+    margin-right: @margin-xs;
+  }
+
+  &__text {
+    flex-grow: 1;
+    line-height: @alert-line-height;
+    font-size: @alert-text-size;
+    align-items: center;
+
+    .@{prefixName}-button--text {
+      font-size: @alert-text-size!important;
+      line-height: @alert-line-height!important;
+      padding: 0 !important;
+    }
+
+    .@{prefixName}-text {
+      font-size: @alert-text-size;
+      line-height: @alert-line-height;
+    }
+  }
+
+  &.with-suffix {
+    .@{prefixName}-alert__text {
+      margin-right: 68px;
+    }
+  }
+
+  &__chevron {
+  }
+
+  &__close {
+  }
+
+  .@{prefixName}-button--text {
+    vertical-align: top;
+  }
+}

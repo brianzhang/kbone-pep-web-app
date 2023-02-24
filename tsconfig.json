@@ -1,0 +1,31 @@
+﻿{
+  "compilerOptions": {
+    "jsx": "react",
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "target": "es5",
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noImplicitThis": true,
+    "moduleResolution": "node",
+    "module": "es6",
+    "outDir": "lib",
+    "declaration": true,
+    "removeComments": true,
+    "allowJs": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "lib": [
+      "dom",
+      "es6",
+      "scripthost"
+    ]
+  },
+  "files": [
+    "global.d.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.test.*"
+  ]
+}

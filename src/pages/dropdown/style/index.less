@@ -1,0 +1,16 @@
+@import "./var.less";
+
+.@{prefixName}-dropdown {
+  position: relative;
+
+  .@{prefixName}-dropdown__attachment {
+    width: 100%;
+    height: 100%;
+  }
+
+  .@{prefixName}-dropdown__overlay {
+    position: absolute;
+    width: 100%;
+    z-index: @zindex-dropdown;
+  }
+}

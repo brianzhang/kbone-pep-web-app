@@ -1,0 +1,49 @@
+.page {
+  .tea-button.size-lg + .tea-button.size-lg {
+    margin-top: 24px;
+  }
+
+  .size-button .tea-button + .tea-button.size-md {
+    margin-left: 24px;
+  }
+
+  .size-button .tea-button + .tea-button.size-sm {
+    margin-left: 20px;
+  }
+
+  .text-button {
+    .tea-button.size-lg + .tea-button.size-lg {
+      margin-top: 0;
+    }
+    .tea-button + .tea-button {
+      margin-left: 24px;
+    }
+  }
+
+  .tea-button-group + .tea-button-group {
+    margin-top: 24px;
+  }
+
+  .tea-button.tea-button--text {
+    margin-top: 0;
+  }
+
+  .fixed-button {
+    .tea-button--fixed,
+    .tea-button-group--fixed {
+      position: relative !important;
+    }
+    .tea-button-group {
+      .tea-button + .tea-button {
+        margin-top: 0;
+      }
+      margin-top: 24px;
+    }
+  }
+
+  .tea-button-group--operational {
+    .tea-button.size-lg + .tea-button.size-lg {
+      margin-top: 0;
+    }
+  }
+}

@@ -1,0 +1,213 @@
+@import "./var.less";
+
+.@{prefixName}-list {
+  &__title,
+  &__footer {
+    font-size: @list-title-text-size;
+    color: @list-title-text-color;
+    padding: @list-title-padding;
+  }
+
+  // 适配 Picker 包住 Item 时边框
+  .@{prefixName}-list__wrap > .@{prefixName}-picker:not(:last-child) {
+    .@{prefixName}-item.@{prefixName}-hairline--bottom::after {
+      display: initial;
+    }
+  }
+
+  // 适配 Checkbox Group 包住 Item 时 margin
+  .@{prefixName}-list__wrap > .@{prefixName}-checkbox-group {
+    margin: 0;
+  }
+}
+
+.@{prefixName}-list-divider {
+  position: relative;
+  font-size: 0;
+  height: @list-divider-height;
+  border: 2px solid @list-item-background-color;
+  z-index: 1;
+  margin-top: -2px;
+}
+
+.@{prefixName}-item {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: @list-item-sm-height;
+  line-height: @list-item-line-height;
+  padding: @list-item-padding-vertical @list-item-padding-horizontal;
+  background-color: @list-item-background-color;
+  align-items: center;
+  box-sizing: border-box;
+
+  // &.size-md {
+  //   height: @list-item-md-height;
+  // }
+
+  &.size-lg {
+    height: @list-item-lg-height;
+  }
+
+  &.size-auto {
+    height: auto;
+    align-items: stretch;
+  }
+
+  &.is-required:before {
+    position: absolute;
+    content: "*";
+    font-size: inherit;
+    left: 14px;
+    color: @list-item-required-color;
+  }
+
+  &.is-clickable:active {
+    background-color: @list-item-hover-background-color;
+  }
+
+  &.@{prefixName}-hairline--bottom {
+    &::after {
+      left: @list-item-padding-horizontal;
+    }
+
+    &:last-child {
+      &::after {
+        display: none;
+      }
+    }
+
+    &.with-icon {
+      &::after {
+        left: 104px;
+      }
+    }
+
+    &.with-thumb {
+      &::after {
+        left: @list-item-thumb-size + @list-item-left-thumb-margin-right +
+          @list-item-padding-horizontal;
+        // left: 104px;
+      }
+    }
+  }
+
+  &__left-icon {
+    display: flex;
+    margin-right: @list-item-left-icon-margin-right;
+    align-items: center;
+  }
+
+  &__body {
+    flex: 1 1 auto;
+  }
+
+  &__title {
+    font-size: @list-item-title-text-size;
+    color: @list-item-title-text-color;
+  }
+
+  &__description {
+    font-size: @list-item-description-text-size;
+    color: @list-item-description-text-color;
+  }
+
+  &__title + &__description {
+    margin-top: @list-item-description-margin-top;
+  }
+
+  &.size-sm,
+  &.size-md,
+  &.size-lg {
+    .@{prefixName}-item__body,
+    .@{prefixName}-item__title,
+    .@{prefixName}-item__description,
+    .@{prefixName}-item__value {
+      .text-ellipsis();
+    }
+  }
+
+  &.size-auto {
+    .@{prefixName}-item__body,
+    .@{prefixName}-item__title,
+    .@{prefixName}-item__description {
+      .word-break();
+    }
+  }
+
+  &__thumb--left,
+  &__thumb--right {
+    display: flex;
+    width: @list-item-thumb-size;
+    height: inherit;
+    flex: 0 0 auto;
+    flex-direction: column;
+
+    .@{prefixName}-item__thumb {
+      position: relative;
+      width: 100%;
+      height: 0;
+      padding-top: 100%;
+
+      &-image {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        width: auto;
+        height: auto;
+        max-height: 100%;
+      }
+    }
+  }
+
+  &__thumb--left {
+    margin-right: @list-item-left-thumb-margin-right;
+  }
+
+  &__thumb--right {
+    margin-left: @list-item-right-thumb-margin-left;
+  }
+
+  &__value {
+    flex: 1 0 25%;
+    font-size: @list-item-value-text-size;
+    color: @list-item-value-text-color;
+    margin-left: 16px;
+    text-align: right;
+
+    .@{prefixName}-icon,
+    .@{prefixName}-switch {
+      vertical-align: middle;
+    }
+  }
+
+  &__body:empty,
+  &__value:empty {
+    display: none;
+  }
+
+  &__body:empty + &__value {
+    flex: 1;
+    margin-left: 0;
+  }
+
+  &__right-icon {
+    display: flex;
+    margin-right: -16px;
+    align-items: center;
+  }
+
+  &__detail-icon {
+    margin-left: auto;
+    margin-right: -16px;
+  }
+
+  &__detail-icon--vertical {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+  }
+}

@@ -1,0 +1,58 @@
+@import "./var.less";
+
+.@{prefixName}-descriptions {
+  line-height: @descriptions-line-height;
+  text-align: left;
+
+  &__item {
+    word-break: break-all;
+
+    &.@{prefixName}-level {
+      align-items: start;
+    }
+
+    .@{prefixName}-text {
+      font-size: @descriptions-text-size;
+      line-height: @descriptions-line-height;
+    }
+
+    & > .@{prefixName}-level__center {
+      flex-grow: 1;
+      flex-shrink: 1;
+    }
+
+    .@{prefixName}-button--text {
+      font-size: @descriptions-text-size;
+      line-height: @descriptions-line-height;
+      padding: 0;
+    }
+  }
+
+  &__label {
+    color: @text-light-color;
+    font-size: @descriptions-text-size;
+  }
+
+  &__value {
+    box-sizing: border-box;
+    width: 100%;
+    font-size: @descriptions-text-size;
+    display: flex;
+    align-items: center;
+  }
+
+  &__value--hover {
+    background-color: @background-base-hover-color;
+  }
+
+  &__text {
+    padding: 0 20px;
+    flex-grow: 1;
+  }
+
+  &__arrow {
+    flex-grow: 0;
+    flex-shrink: 0;
+    color: @text-light-color;
+  }
+}

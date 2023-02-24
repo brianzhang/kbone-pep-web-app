@@ -1,0 +1,28 @@
+@import "../../_style/index.less";
+
+.@{prefixName}-level {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+
+  &__start,
+  &__center,
+  &__end {
+    display: flex;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: auto;
+    align-items: center;
+    box-sizing: border-box;
+  }
+
+  &__start {
+    justify-content: flex-start;
+  }
+
+  &__end {
+    justify-content: flex-end;
+  }
+}

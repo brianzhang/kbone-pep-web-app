@@ -1,0 +1,46 @@
+@import "./var.less";
+
+.loop(@keyArray, @valueArray, @i: 1) when (@i =< length(@keyArray)) {
+	@key: extract(@keyArray, @i);
+	@value: extract(@valueArray, @i);
+	.loop(@keyArray, @valueArray, (@i + 1));
+
+	.@{prefixName}-progress{
+		&.is-@{key} {
+			.@{prefixName}-progress__bar-inner {
+				background-color: @value;
+			}
+		}
+	}
+}
+.@{prefixName}-progress {
+	display: flex;
+	width: 100%;
+	-webkit-box-align: center;
+	align-items: center;
+
+	&__bar {
+		flex: 1;
+		height: 16px;
+    border-radius: 20px;
+    background-color: @progress-background-color;
+
+		&-inner {
+			display: block;
+      height: 100%;
+      border-radius: 20px;
+			background-color: @progress-bar-background-color;
+		}
+	}
+
+	&__value {
+		display: inline-block;
+		min-width: 70px;
+		height: 100%;
+		text-align: right;
+		margin-left: @progress-gap;
+		font-size: 26px;
+	}
+}
+
+.loop(@progress-status-key, @progress-status-value, 1);

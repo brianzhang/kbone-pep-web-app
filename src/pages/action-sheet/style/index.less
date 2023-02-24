@@ -1,0 +1,99 @@
+@import "./var.less";
+
+.@{prefixName}-actionsheet {
+  background: @actionsheet-divider-color;
+
+  &__item,
+  &__cancel-button {
+    margin-top: 0;
+    display: flex;
+    font-size: @actionsheet-item-text-size;
+    min-height: @actionsheet-item-min-height;
+    line-height: normal;
+    color: @actionsheet-item-text-color!important;
+    background-color: @actionsheet-item-background-color!important;
+    padding: @actionsheet-item-padding;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: initial;
+    box-sizing: border-box;
+    .text-ellipsis(100%);
+
+    &--hover {
+      background-color: @actionsheet-item-hover-background-color!important;
+    }
+  }
+
+  &__item,
+  &__title {
+    position: relative;
+    box-sizing: border-box;
+
+    &::after {
+      border: none;
+      .single-border(@direction: bottom, @color: @actionsheet-divider-color);
+    }
+  }
+
+  &__item {
+    &.is-disabled {
+      color: @actionsheet-item-disabled-text-color !important;
+      background-color: @actionsheet-item-background-color !important;
+      pointer-events: none;
+    }
+
+    &.is-destructive {
+      color: @actionsheet-destructive-item-text-color!important;
+    }
+
+    &.is-loading {
+      pointer-events: none;
+    }
+  }
+
+  &__actions {
+    > .@{prefixName}-actionsheet__item:last-child {
+      &::after {
+        .single-border(@direction: bottom, @size: 0px, @color: @actionsheet-divider-color);
+      }
+    }
+  }
+
+  &__loading {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__name {
+    display: block;
+    .text-ellipsis(100%);
+  }
+
+  &__description {
+    display: block;
+    font-size: @actionsheet-description-text-size;
+    color: @actionsheet-description-text-color;
+    margin-top: 6px;
+    .text-ellipsis(100%);
+  }
+
+  &__title {
+    display: flex;
+    font-size: @actionsheet-title-text-size;
+    color: @actionsheet-title-text-color;
+    height: @actionsheet-title-min-height;
+    padding: @actionsheet-title-padding;
+    background-color: @actionsheet-title-background-color;
+    align-items: center;
+    justify-content: center;
+    .text-ellipsis(100%);
+  }
+
+  &__cancel {
+    margin-top: @actionsheet-cancel-margin-top;
+    &-button::after {
+      content: none;
+    }
+  }
+}

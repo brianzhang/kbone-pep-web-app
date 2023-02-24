@@ -1,0 +1,135 @@
+@import "./var.less";
+
+.@{prefixName}-select {
+  width: 100%;
+  font-size: @select-text-size;
+
+  &__header {
+    width: 100%;
+    height: @select-header-height;
+    display: flex;
+    align-items: center;
+  }
+
+  &__main {
+    flex-grow: 1;
+    height: 100%;
+    display: flex;
+    // https://stackoverflow.com/questions/38223879/white-space-nowrap-breaks-flexbox-layout
+    min-width: 0;
+  }
+
+  &__option {
+    height: 100%;
+    width: 0;
+    flex-grow: 1;
+    box-sizing: border-box;
+    padding: @select-cell-padding;
+    .flex(@align-items: center, @justify-content: center);
+    &.@{prefixName}-select__option--search {
+      flex-grow: 0;
+      width: 33.333%;
+    }
+  }
+
+  &__cell {
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    &.is-active {
+      .@{prefixName}-select__value {
+        color: @color-black-1;
+      }
+      .@{prefixName}-select__arrowdown {
+        color: @color-black-1;
+        transform: rotate(180deg);
+        transform-origin: center;
+      }
+    }
+  }
+
+  &__value {
+    flex-grow: 1;
+    .text-ellipsis();
+    line-height: 48px;
+    color: @color-black-2;
+  }
+
+  &__suffix {
+    flex-grow: 0;
+    flex-shrink: 0;
+    margin-left: 2px;
+    line-height: 48px;
+    color: @color-black-2;
+  }
+
+  &__arrowdown {
+    flex-grow: 0;
+    flex-shrink: 0;
+    color: @color-black-2;
+    transition: transform 0.3s ease-out;
+  }
+
+  &__loading {
+    color: @color-black-3;
+  }
+
+  &__body {
+    position: fixed;
+    z-index: 202;
+    left: 0;
+  }
+
+  &__overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 0;
+  }
+
+  &__backdrop {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 201;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  &__mask {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 201;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  &__wrap {
+    position: absolute;
+    z-index: 202;
+    width: 100vw;
+    overflow: hidden;
+    // transition: height 0.3s ease;
+  }
+
+  &__group_wrap {
+    background-color: #f4f5f9;
+    padding: 40px 20px;
+    box-sizing: border-box;
+  }
+
+  &__btn_wrap > .@{prefixName}-button {
+    width: 50% !important;
+    display: inline-flex !important;
+    margin: 0;
+  }
+
+  &__check {
+    color: @icon-primary-color;
+  }
+}

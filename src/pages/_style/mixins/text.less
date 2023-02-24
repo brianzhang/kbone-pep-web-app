@@ -1,0 +1,37 @@
+.text-wrap() {
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.text-ellipsis(@width: auto) {
+  width: @width;
+  white-space: nowrap;
+  word-wrap: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.word-break() {
+  white-space: normal;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+// number of lines to show
+.line-overflow(@line) {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: @line;
+  -webkit-box-orient: vertical;
+}
+
+// Alignment
+.text-align(@type) {
+  text-align: @type;
+}
+
+// Text Transformation
+.text-transform(@type) {
+  text-transform: @type;
+}

@@ -1,0 +1,52 @@
+@import "./var.less";
+
+.@{prefixName}-statistic {
+  &__title {
+    font-size: @font-size-xs;
+    line-height: 40px;
+    color: @text-color;
+  }
+
+  &__value {
+    display: flex;
+    align-items: baseline;
+    font-size: @statistic-value-font-size;
+    color: @statistic-value-text-color;
+  }
+
+  &__unit {
+    font-size: @font-size-xs;
+    line-height: 40px;
+    color: @text-color;
+    margin-left: @margin-base;
+  }
+
+  &__infos {
+    font-size: @font-size-xs;
+    color: @text-light-color;
+    margin-top: @margin-base;
+  }
+
+  &__info {
+    margin-top: @margin-base;
+    display: flex;
+    align-items: center;
+    height: 40px;
+  }
+
+  &__row {
+    .@{prefixName}-statistic {
+      margin: @statistic-margin;
+    }
+    // &:first-of-type {
+    //   .@{prefixName}-statistic {
+    //     margin-top: 0;
+    //   }
+    // }
+    &:last-of-type {
+      .@{prefixName}-statistic {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

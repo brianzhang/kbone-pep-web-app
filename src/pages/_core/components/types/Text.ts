@@ -1,0 +1,1 @@
+export { TextProps } from "../text";

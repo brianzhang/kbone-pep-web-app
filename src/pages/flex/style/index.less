@@ -1,0 +1,287 @@
+@import "../../_style/index.less";
+
+:host {
+  width: 100%;
+}
+.@{prefixName}-row {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.@{prefixName}-flex-wrap-nowrap {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.@{prefixName}-flex-wrap-nowrap::-webkit-scrollbar {
+  display: none;
+}
+
+.@{prefixName}-flex-row-reverse {
+  flex-direction: row-reverse;
+}
+
+.@{prefixName}-justify-content-flex-start {
+  justify-content: flex-start;
+}
+.@{prefixName}-justify-content-center {
+  justify-content: center;
+}
+.@{prefixName}-justify-content-flex-end {
+  justify-content: flex-end;
+}
+
+.@{prefixName}-justify-content-space-around {
+  justify-content: space-around;
+}
+.@{prefixName}-justify-content-space-between {
+  justify-content: space-between;
+}
+.@{prefixName}-justify-content-space-evenly {
+  justify-content: space-evenly;
+}
+
+.@{prefixName}-align-items-stretch {
+  align-items: stretch;
+}
+.@{prefixName}-align-items-flex-start {
+  align-items: flex-start;
+}
+.@{prefixName}-align-items-flex-end {
+  align-items: flex-end;
+}
+.@{prefixName}-align-items-center {
+  align-items: center;
+}
+.@{prefixName}-align-items-baseline {
+  align-items: baseline;
+}
+
+.@{prefixName}-col {
+  box-sizing: border-box;
+  flex: 1;
+  display: flex;
+  // https://stackoverflow.com/questions/38223879/white-space-nowrap-breaks-flexbox-layout
+  min-width: 0;
+}
+
+.flex-none {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+}
+
+:host {
+  box-sizing: border-box;
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: 0;
+  max-width: 100%;
+  display: flex;
+}
+
+:host(.start) {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  align-items: center;
+}
+:host(.center) {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+
+  align-items: center;
+}
+:host(.end) {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+
+  align-items: center;
+}
+
+/* cols */
+.col-1-12,
+.col-2-12,
+.col-3-12,
+.col-4-12,
+.col-5-12,
+.col-6-12,
+.col-7-12,
+.col-8-12,
+.col-9-12,
+.col-10-12,
+.col-11-12,
+.col-12-12,
+.col-1-5,
+.col-2-5,
+.col-3-5,
+.col-4-5,
+.col-5-5 {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+}
+
+.col-1-12 {
+  flex-basis: 8.33333333%;
+  max-width: 8.33333333%;
+}
+
+.col-2-12 {
+  flex-basis: 16.66666667%;
+  max-width: 16.66666667%;
+}
+
+.col-3-12 {
+  flex-basis: 25%;
+  max-width: 25%;
+}
+
+.col-4-12 {
+  flex-basis: 33.33333333%;
+  max-width: 33.33333333%;
+}
+
+.col-5-12 {
+  flex-basis: 41.66666667%;
+  max-width: 41.66666667%;
+}
+
+.col-6-12 {
+  flex-basis: 50%;
+  max-width: 50%;
+}
+
+.col-7-12 {
+  flex-basis: 58.33333333%;
+  max-width: 58.33333333%;
+}
+
+.col-8-12 {
+  flex-basis: 66.66666667%;
+  max-width: 66.66666667%;
+}
+
+.col-9-12 {
+  flex-basis: 75%;
+  max-width: 75%;
+}
+
+.col-10-12 {
+  flex-basis: 83.33333333%;
+  max-width: 83.33333333%;
+}
+
+.col-11-12 {
+  flex-basis: 91.66666667%;
+  max-width: 91.66666667%;
+}
+
+.col-12-12 {
+  flex-basis: 100%;
+  max-width: 100%;
+}
+
+/* Offsets */
+.col-offset-1-12 {
+  margin-left: 8.33333333%;
+}
+
+.col-offset-2-12 {
+  margin-left: 16.66666667%;
+}
+
+.col-offset-3-12 {
+  margin-left: 25%;
+}
+
+.col-offset-4-12 {
+  margin-left: 33.33333333%;
+}
+
+.col-offset-5-12 {
+  margin-left: 41.66666667%;
+}
+
+.col-offset-6-12 {
+  margin-left: 50%;
+}
+
+.col-offset-7-12 {
+  margin-left: 58.33333333%;
+}
+
+.col-offset-8-12 {
+  margin-left: 66.66666667%;
+}
+
+.col-offset-9-12 {
+  margin-left: 75%;
+}
+
+.col-offset-10-12 {
+  margin-left: 83.33333333%;
+}
+
+.col-offset-11-12 {
+  margin-left: 91.66666667%;
+}
+
+/* align */
+.@{prefixName}-align-self-stretch {
+  align-self: stretch;
+}
+.@{prefixName}-align-self-flex-start {
+  align-self: flex-start;
+}
+.@{prefixName}-align-self-flex-end {
+  align-self: flex-end;
+}
+.@{prefixName}-align-self-center {
+  align-self: center;
+}
+.@{prefixName}-align-self-baseline {
+  align-self: baseline;
+}
+
+/* 以5列为基准 */
+.col-1-5 {
+  flex-basis: 20%;
+  max-width: 20%;
+}
+.col-2-5 {
+  flex-basis: 40%;
+  max-width: 40%;
+}
+.col-3-5 {
+  flex-basis: 60%;
+  max-width: 60%;
+}
+.col-4-5 {
+  flex-basis: 80%;
+  max-width: 80%;
+}
+.col-5-5 {
+  flex-basis: 100%;
+  max-width: 100%;
+}
+.col-offset-1-5 {
+  margin-left: 20%;
+}
+.col-offset-2-5 {
+  margin-left: 40%;
+}
+.col-offset-3-5 {
+  margin-left: 60%;
+}
+.col-offset-4-5 {
+  margin-left: 80%;
+}
+.col-offset-5-5 {
+  margin-left: 100%;
+}

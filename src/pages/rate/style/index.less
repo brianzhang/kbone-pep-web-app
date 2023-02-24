@@ -1,0 +1,52 @@
+@import "./var.less";
+
+.@{prefixName}-rate {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+
+  &__items {
+    font-size: 0;
+    margin: 0 -@rate-character-padding;
+  }
+
+  &__item {
+    display: inline-block;
+    position: relative;
+    color: @rate-character-color;
+    font-size: @rate-character-size;
+    line-height: 1;
+
+    & .@{prefixName}-rate__icon {
+      padding-right: @rate-character-padding;
+      padding-left: @rate-character-padding;
+    }
+  }
+
+  &__icon {
+    // width: @rate-character-size;
+    // height: @rate-character-size;
+  }
+
+  &__icon-active {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    overflow: hidden;
+    z-index: 9;
+    color: @rate-character-active-color;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  &__icon-half {
+    z-index: 10;
+    width: 50%;
+  }
+
+  &__icon-full {
+    width: 100%;
+  }
+}

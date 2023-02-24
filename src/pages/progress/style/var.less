@@ -1,0 +1,14 @@
+@import "../../_style/index.less";
+
+// 进度条与值的间隙
+@progress-gap: 32px;
+// 进度条默认背景颜色
+@progress-background-color: @color-gray-1;
+@progress-bar-background-color: @background-primary-color;
+@progress-bar-success-background-color: @background-success-color;
+@progress-bar-danger-background-color: @background-danger-color;
+@progress-bar-disabled-background-color: @color-gray-3;
+@progress-status-key: default success disabled danger;
+@progress-status-value: @progress-bar-background-color
+  @progress-bar-success-background-color @progress-bar-disabled-background-color
+  @progress-bar-danger-background-color;
